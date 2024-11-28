@@ -15,16 +15,3 @@ class ParentNode(HTMLNode):
             for child in self.children:
                 result += child.to_html()
             return f'<{self.tag}>{result}</{self.tag}>'
-
-
-node = ParentNode(
-    "p",
-    [
-        LeafNode("b", "Bold text"),
-        LeafNode(None, "Normal text"),
-        LeafNode("i", "italic text"),
-        LeafNode(None, "Normal text"),
-    ],
-)
-
-print(node.to_html())
