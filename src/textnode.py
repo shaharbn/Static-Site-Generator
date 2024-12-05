@@ -9,6 +9,12 @@ class TextType(Enum):
     LINK = "link"
     IMAGE = "image"
 
+"""
+this class represent text that is part of a larger block of text like bold, italic etc.
+self.text - The text content of the node
+self.text_type - The type of text this node contains, which is a member of the TextType enum.
+self.url - The URL of the link or image, if the text is a link. Default to None if nothing is passed in.
+"""
 class TextNode():
     def __init__(self, text, text_type, url = None):
         self.text = text
@@ -24,7 +30,9 @@ class TextNode():
         return f"TextNode({self.text}, {self.text_type.value}, {self.url})"
 
 
-
+"""
+this function convert text node to his htmlnode ()
+"""
 def text_node_to_html_node(text_node):
     if text_node.text_type == TextType.TEXT:
         return LeafNode("", text_node.text)
